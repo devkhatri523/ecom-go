@@ -10,7 +10,7 @@ import (
 
 func initConfigs() {
 	var configFilePath string
-	viper.SetConfigFile("config")
+	viper.SetConfigName("config")
 	if configFilePath != "" {
 		stat, err := os.Stat(configFilePath)
 		if err != nil {
