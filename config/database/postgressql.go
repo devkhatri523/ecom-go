@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/devkhatri523/ecom-go/config/config"
+	_ "github.com/lib/pq"
 	"time"
 )
 
