@@ -23,8 +23,8 @@ func initConfigs() {
 		}
 	}
 	viper.AddConfigPath(".")
-	viper.AddConfigPath("/etc/appname/") // path to look for the config file in
-	viper.AddConfigPath("$HOME/.appname")
+	viper.AddConfigPath(os.Getenv("/etc/appname/")) // path to look for the config file in
+	viper.AddConfigPath(os.Getenv("$HOME/.appname"))
 	viper.AutomaticEnv()
 	viper.SetConfigType("yml")
 	if err := viper.ReadInConfig(); err != nil {
