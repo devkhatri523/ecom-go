@@ -47,6 +47,7 @@ func BuildDns(options Options) (string, error) {
 		return handleError("database cannot be empty")
 	}
 	var protocol string
+	fmt.Println(protocol)
 	if utils.IsBlank(options.Protocol) {
 		protocol = "tcp"
 	} else {
@@ -59,7 +60,8 @@ func BuildDns(options Options) (string, error) {
 	} else {
 		param = options.PARAM
 	}
-	return fmt.Sprintf("%s:%s@%s(%s:%d)/%s?%s", options.Username, options.Password, protocol,
-		options.Host, options.Port, options.Database, param), nil
+	fmt.Println(param)
+	return fmt.Sprintf("user=%s password=%s dbname=%s host=%s port=%s", options.Username, options.Password,
+		options.Database, options.Host, options.Port), nil
 
 }
