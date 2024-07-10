@@ -61,7 +61,7 @@ func BuildDns(options Options) (string, error) {
 		param = options.PARAM
 	}
 	fmt.Println(param)
-	return fmt.Sprintf("user=%s password=%s dbname=%s host=%s port=%s", options.Username, options.Password,
+	return fmt.Sprintf("user=%s password=%s dbname=%s host=%s port=%d", options.Username, options.Password,
 		options.Database, options.Host, options.Port), nil
 
 }
