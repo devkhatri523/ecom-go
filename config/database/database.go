@@ -3,8 +3,8 @@ package database
 import (
 	"errors"
 	"fmt"
+	"github.com/devkhatri523/ecom-go/config/utils"
 	"time"
-	"v01/utils"
 )
 
 type Options struct {
