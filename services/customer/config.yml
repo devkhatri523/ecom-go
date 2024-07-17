@@ -1,0 +1,4 @@
+db:
+  mongo:
+    url: mongodb://localhost:27017
+    database: mydb
