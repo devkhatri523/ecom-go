@@ -5,6 +5,7 @@ go 1.20
 require (
 	github.com/confluentinc/confluent-kafka-go/v2 v2.5.0 // indirect
 	github.com/devkhatri523/ecom-go/config v0.0.0-20240723033242-05412321bc78 // indirect
+	github.com/devkhatri523/ecom-go/go-utils v0.0.0-20240723033242-05412321bc78 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
