@@ -1,0 +1,13 @@
+<bindings
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+        xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+        jaxb:version="2.1">
+    <bindings schemaLocation="your-schema.xsd">
+        <bindings node="//xs:element[@type='xs:hexBinary']">
+            <javaType name="byte[]"
+                      xmlType="xs:hexBinary"
+                      adapter="javax.xml.bind.annotation.adapters.HexBinaryAdapter"/>
+        </bindings>
+    </bindings>
+</bindings>
