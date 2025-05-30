@@ -2,10 +2,11 @@ package cursor
 
 import (
 	"bytes"
-	"cursor-paginator/internal/util"
 	"encoding/base64"
 	"encoding/json"
 	"reflect"
+
+	"github.com/devkhatri523/ecom-go/cursor-paginator/internal/util"
 )
 
 // NewDecoder creates cursor decoder for model

@@ -1,9 +1,9 @@
 package cursor
 
 import (
-	"cursor-paginator/internal/util"
 	"encoding/base64"
 	"encoding/json"
+	"github.com/devkhatri523/ecom-go/cursor-paginator/internal/util"
 	"reflect"
 )
 

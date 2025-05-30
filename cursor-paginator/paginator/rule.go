@@ -1,7 +1,7 @@
 package paginator
 
 import (
-	"cursor-paginator/internal/util"
+	"github.com/devkhatri523/ecom-go/cursor-paginator/internal/util"
 	"gorm.io/gorm"
 	"reflect"
 )

@@ -1,4 +1,4 @@
-module cursor-paginator
+ module github.com/devkhatri523/ecom-go/cursor-paginator
 
 go 1.24
 

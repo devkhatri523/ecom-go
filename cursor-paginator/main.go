@@ -1,9 +1,9 @@
 package main
 
 import (
-	"cursor-paginator/paginator"
 	"encoding/json"
 	"fmt"
+	"github.com/devkhatri523/ecom-go/cursor-paginator/paginator"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
