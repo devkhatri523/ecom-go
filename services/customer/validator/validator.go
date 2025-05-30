@@ -2,11 +2,12 @@ package validator
 
 import (
 	"errors"
+	"github.com/devkhatri523/ecom-go/go-utils/utils"
 	"v01/data/request"
 )
 
 func ValidateCustomerCreateRequest(request request.CustomerRequest) error {
-	if request.FirstName == "" {
+	if utils.IsBlank(request.FirstName) {
 		return errors.New("customer first name cannot be null")
 	}
 	if request.LastName == "" {

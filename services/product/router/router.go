@@ -8,7 +8,7 @@ import (
 func ProductRouter(productController *controller.ProductController) *gin.Engine {
 	service := gin.Default()
 
-	router := service.Group("/products")
+	router := service.Group("/api/products")
 
 	router.GET("", productController.FindAll)
 	router.GET("/:id", productController.FindById)

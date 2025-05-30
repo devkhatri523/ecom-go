@@ -1,0 +1,39 @@
+mail:
+  host: localhost
+  port: 1025
+  username: devraj
+  password: password
+  properties:
+    mail:
+      smtp:
+        trust: "*"
+      auth: true
+      starttls:
+        enabled: true
+      connectiontimeout: 5000
+      timeout: 3000
+      writetimeout: 5000
+
+
+kafka:
+  brokers: [ "localhost:9092" ]
+  useSSL: false
+
+event:
+  order:
+    created:
+     topic: "ORDER_CONFIRMATION"
+     group: "ecom-go-order-creation-event"
+  payment:
+    created:
+      topic: "PAYMENT_CONFIRMATION"
+      group: "ecom-go-payment-creation-event"
+
+
+logger:
+  timeKey: "timestamp"
+  fileAppender: false
+  consoleAppender: true
+  fileName: "log.json"
+  logLevel: "debug"
+  traceKey: "debugId"

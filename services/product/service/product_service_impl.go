@@ -63,6 +63,7 @@ func (p ProductServiceImpl) FindAll() (productResponse []response.ProductRespons
 			Name:        value.ProductName,
 			Description: value.ProductDescription,
 			Category:    value.Category,
+			Price:       value.Price,
 		}
 		productResponse = append(productResponse, product)
 	}
@@ -134,11 +135,11 @@ func (p ProductServiceImpl) PurchaseProducts(purchaseProductRequest []request.Pr
 		}
 		newAvailableQuantity := product.AvailableQuantity - productRequest.Quantity
 		product.AvailableQuantity = newAvailableQuantity
-		_, err = p.ProductRepository.Save(product)
+		err = p.ProductRepository.Update(product)
 		if err != nil {
 			return nil, err
 		}
-		purchaseProductResponse = append(purchaseProductResponse, mapper.MapToPurchaseResponse(product, productRequest.Quantity))
+		purchaseProductResponse = append(purchaseProductResponse, mapper.MapToPurchaseResponse(product, product.AvailableQuantity))
 	}
 	return purchaseProductResponse, nil
 

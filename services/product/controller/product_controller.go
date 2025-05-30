@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
@@ -122,14 +123,8 @@ func (productController *ProductController) PurchaseProducts(ctx *gin.Context) {
 		})
 		return
 	}
-
-	res := response.Response{
-		Code:   200,
-		Status: "Ok",
-		Data:   purchaseProducts,
-	}
-
-	ctx.JSON(http.StatusOK, res)
+	fmt.Println(purchaseProducts)
+	ctx.JSON(http.StatusOK, purchaseProducts)
 
 }
 

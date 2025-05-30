@@ -101,7 +101,7 @@ func (p ProductRepositoryImpl) Save(product model.Product) (int32, error) {
 }
 
 func (p ProductRepositoryImpl) Update(product model.Product) error {
-	data := &model.Product{
+	data := model.Product{
 		ProductName:        product.ProductName,
 		ProductDescription: product.ProductDescription,
 		AvailableQuantity:  product.AvailableQuantity,
@@ -134,6 +134,7 @@ func (p ProductRepositoryImpl) FindAllProductsById(ids []int32) ([]model.Product
 			ProductName:        indvProductCategory.ProductName,
 			ProductDescription: indvProductCategory.ProductDescription,
 			AvailableQuantity:  indvProductCategory.AvailableQuantity,
+			Price:              indvProductCategory.Price,
 			Category: model.Category{
 				CategoryName:        indvProductCategory.CategoryName,
 				CategoryId:          indvProductCategory.CategoryID,

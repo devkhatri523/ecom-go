@@ -1,0 +1,19 @@
+package domain
+
+import "encoding/json"
+
+type Purchase struct {
+	ProductId   int32   `json:"productId"`
+	Name        string  `json:"name"`
+	Description string  `json:"description"`
+	Price       float64 `json:"price"`
+	Quantity    float64 `json:"quantity"`
+}
+
+func (r Purchase) String() string {
+	j, err := json.Marshal(r)
+	if err != nil {
+		return ""
+	}
+	return string(j)
+}

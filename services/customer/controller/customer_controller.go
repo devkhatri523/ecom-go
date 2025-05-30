@@ -139,12 +139,12 @@ func (c *CustomerController) FindCustomerById(ctx *gin.Context) {
 		return
 	}
 
-	res := response.Response{
+	/*res := response.Response{
 		Code:   200,
 		Status: "Ok",
 		Data:   data,
-	}
-	ctx.JSON(http.StatusOK, res)
+	}*/
+	ctx.JSON(http.StatusOK, data)
 
 }
 

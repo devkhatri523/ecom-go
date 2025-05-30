@@ -26,7 +26,7 @@ func main() {
 	routes := router.CustomerRouter(customerController)
 
 	server := &http.Server{
-		Addr:           ":8888",
+		Addr:           ":8010",
 		Handler:        routes,
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,

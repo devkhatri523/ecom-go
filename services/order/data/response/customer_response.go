@@ -6,7 +6,7 @@ type CustomerResponse struct {
 	Id        string `json:"id"`
 	FirstName string `json:"firstName"`
 	LastName  string `json:"lastName"`
-	Email     string `json:"email"`
+	Email     string `validate:"required,email"`
 }
 
 func (r CustomerResponse) String() string {

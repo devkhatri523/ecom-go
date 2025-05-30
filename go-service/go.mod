@@ -1,6 +1,8 @@
 module github.com/devkhatri523/ecom-go/go-service
 
-go 1.20
+go 1.21
+
+toolchain go1.24.0
 
 require (
 	github.com/confluentinc/confluent-kafka-go/v2 v2.5.0 // indirect

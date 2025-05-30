@@ -21,18 +21,13 @@ func NewProductController(paymentService service.PaymentService) *PaymentControl
 func (paymentController *PaymentController) Create(ctx *gin.Context) {
 	req := request.PaymentRequest{}
 	err := ctx.ShouldBindJSON(&req)
-	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, response.ErrorResponse{
-			Code:    500,
-			Message: err.Error(),
-		})
-		return
-	}
+
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, response.ErrorResponse{
 			Code:    400,
 			Message: err.Error(),
 		})
+		return
 	}
 
 	product, err := paymentController.paymentService.CreatePayment(req)

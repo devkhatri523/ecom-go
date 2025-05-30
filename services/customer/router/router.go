@@ -8,7 +8,7 @@ import (
 func CustomerRouter(customerController *controller.CustomerController) *gin.Engine {
 	service := gin.Default()
 
-	router := service.Group("/customers")
+	router := service.Group("/api/customers")
 
 	router.GET("", customerController.FindAllCustomerCustomer)
 	router.GET("/:customerId", customerController.FindCustomerById)

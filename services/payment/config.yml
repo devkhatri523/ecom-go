@@ -5,3 +5,18 @@ db:
     username: postgres
     password: postgres
     database: postgres
+
+
+kafka:
+  brokers: [ "localhost:9092" ]
+  useSSL: false
+
+event:
+  order:
+    created:
+      topic: "ORDER_CONFIRMATION"
+      group: "ecom-go-order-creation-event"
+  payment:
+    created:
+      topic: "PAYMENT_CONFIRMATION"
+      group: "ecom-go-payment-creation-event"

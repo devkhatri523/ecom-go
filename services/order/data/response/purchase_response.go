@@ -3,7 +3,7 @@ package response
 import "encoding/json"
 
 type PurchaseResponse struct {
-	ProductId   int     `json:"productId"`
+	ProductId   int32   `json:"productId"`
 	Name        string  `json:"name"`
 	Description string  `json:"description"`
 	Price       float64 `json:"price"`

@@ -1,6 +1,9 @@
 package request
 
-import "v01/enum"
+import (
+	"v01/domain"
+	"v01/enum"
+)
 
 type PaymentRequest struct {
 	Id             string             `json:"id,omitempty"`
@@ -8,5 +11,5 @@ type PaymentRequest struct {
 	PaymentMethod  enum.PaymentMethod `json:"paymentMethod"`
 	OrderId        int32              `json:"orderId"`
 	OrderReference string             `json:"orderReference"`
-	//	Customer       domain.Customer    `json:"customer"`
+	Customer       domain.Customer    `json:"customer"`
 }

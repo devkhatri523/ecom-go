@@ -1,0 +1,43 @@
+db:
+  postgres:
+    host: localhost
+    port: 5432
+    username: postgres
+    password: postgres
+    database: postgres
+
+
+customer:
+  service:
+    url: http://localhost:8010/api/customers
+
+product:
+  service:
+    url: http://localhost:8020/api/products
+
+
+payment:
+  service:
+    url: http://localhost:8030/api/payment
+
+logger:
+  timeKey: "timestamp"
+  fileAppender: false
+  consoleAppender: true
+  fileName: "log.json"
+  logLevel: "debug"
+  traceKey: "debugId"
+
+kafka:
+  brokers: [ "localhost:9092" ]
+  useSSL: false
+
+event:
+  order:
+    created:
+      topic: "ORDER_CONFIRMATION"
+      group: "ecom-go-order-creation-event"
+  payment:
+    created:
+      topic: "PAYMENT_CONFIRMATION"
+      group: "ecom-go-payment-creation-event"

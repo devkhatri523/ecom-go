@@ -4,11 +4,15 @@ import (
 	"fmt"
 	"github.com/devkhatri523/ecom-go/config/config"
 	"github.com/devkhatri523/ecom-go/config/database"
+	"github.com/devkhatri523/ecom-go/go-service/event"
+	"github.com/devkhatri523/ecom-go/go-service/kafka"
+	utils2 "github.com/devkhatri523/ecom-go/go-utils/utils"
 	"github.com/go-playground/validator/v10"
 	"log"
 	"net/http"
 	"time"
 	"v01/controller"
+	pymentKafka "v01/kafka"
 	"v01/repository"
 	"v01/router"
 	"v01/service"
@@ -24,6 +28,9 @@ func main() {
 	fmt.Println(db)
 	validate := validator.New()
 	paymentRepository := repository.NewPaymentRepositoryImpl(db.OrmInstance)
+	kafkaProducer := openKafkaProducer()
+	publisher := event.NewKafkaPublisher(kafkaProducer)
+	orderConfirmationPublisher := pymentKafka.NewPaymentConfirmationPublisher(publisher)
 	paymentService, err := service.NewPaymentServiceImpl(paymentRepository, validate)
 	if err != nil {
 		// Handle error appropriately, such as logging and exiting
@@ -33,7 +40,7 @@ func main() {
 	routes := router.PaymentRouter(paymentController)
 
 	server := &http.Server{
-		Addr:           ":8888",
+		Addr:           ":8030",
 		Handler:        routes,
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
@@ -56,4 +63,21 @@ func OpenDb() (*database.OrmDB, error) {
 		return nil, err
 	}
 	return orm, nil
+}
+
+func openKafkaProducer() kafka.ProducerClient {
+	k := kafka.ProducerClient{
+		ProducerConnectionDetail: kafka.ProducerConnectionDetail{
+			ConnectionDetail: getKafkaConnectionDetail(),
+		},
+	}
+	k.Start()
+	return k
+}
+func getKafkaConnectionDetail() kafka.ConnectionDetail {
+	return kafka.ConnectionDetail{
+		Brokers:  config.Default().GetStringSlice("kafka.brokers"),
+		UseSSL:   config.Default().GetBool("kafka.useSSL"),
+		ClientId: utils2.GenerateUUID(),
+	}
 }
