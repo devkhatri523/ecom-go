@@ -1,9 +1,8 @@
 package cursor
 
 import (
-	"testing"
-
 	"github.com/stretchr/testify/suite"
+	"testing"
 )
 
 func TestEncoder(t *testing.T) {

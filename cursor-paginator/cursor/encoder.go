@@ -3,8 +3,9 @@ package cursor
 import (
 	"encoding/base64"
 	"encoding/json"
-	"github.com/devkhatri523/ecom-go/cursor-paginator/internal/util"
 	"reflect"
+
+	"github.com/devkhatri523/ecom-go/cursor-paginator/internal/util"
 )
 
 // NewEncoder creates cursor encoder

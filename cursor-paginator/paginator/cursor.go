@@ -1,4 +1,4 @@
-package cursor
+package paginator
 
 // Cursor cursor data
 type Cursor struct {
